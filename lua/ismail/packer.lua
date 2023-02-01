@@ -26,6 +26,8 @@ return require("packer").startup(function(use)
 	use("folke/tokyonight.nvim")
 	--gruvbox theme
 	use({ "ellisonleao/gruvbox.nvim" })
+	--xresources
+	use("nekonako/xresources-nvim")
 	--to navigate between windowns with C+kjlh
 	use("christoomey/vim-tmux-navigator")
 	--lsp
@@ -52,6 +54,11 @@ return require("packer").startup(function(use)
 	})
 	use("jose-elias-alvarez/null-ls.nvim") -- Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua
 	use("jayp0521/mason-null-ls.nvim")
+	--lspsaga
+	use({
+		"glepnir/lspsaga.nvim",
+		branch = "main",
+	})
 	--treesitter
 	use({
 		"nvim-treesitter/nvim-treesitter",
@@ -77,4 +84,15 @@ return require("packer").startup(function(use)
 	use("numToStr/Comment.nvim")
 	use("JoosepAlviste/nvim-ts-context-commentstring")
 	use("mattn/emmet-vim")
+	--TailwindCSS Colorizer CMP
+	use({
+		"roobert/tailwindcss-colorizer-cmp.nvim",
+		-- optionally, override the default options:
+		config = function()
+			require("tailwindcss-colorizer-cmp").setup({
+				color_square_width = 2,
+			})
+		end,
+	})
+	--[[ use("github/copilot.vim") ]]
 end)
